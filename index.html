@@ -1,139 +1,123 @@
+
 <!doctype html>
 <html lang="id">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Account Helper</title>
+<title>Password Generator</title>
 
 <style>
 
-body{
-  font-family:Calibri,Arial,sans-serif;
-  background:radial-gradient(circle at top,#3b2a00,#120d02);
-  padding:20px;
-  color:#fff;
-  display:flex;
-  justify-content:center;
+body {
+  font-family: Calibri, Arial, sans-serif;
+  background: radial-gradient(circle at top, #3b2a00, #120d02);
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
-.container{
-  width:100%;
-  max-width:520px;
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 8px #ffd700, 0 0 20px #ffae00;
+    border-color: #ffd700;
+  }
+
+  50% {
+    box-shadow: 0 0 12px #fff3a1, 0 0 28px #ffcc00;
+    border-color: #fff3a1;
+  }
+
+  100% {
+    box-shadow: 0 0 8px #ffd700, 0 0 20px #ffae00;
+    border-color: #ffd700;
+  }
 }
 
-.logo{
-  text-align:center;
-  margin-bottom:18px;
+.container {
+  width: 100%;
+  max-width: 520px;
 }
 
-.logo img{
-  width:230px;
-  max-width:90%;
-  border-radius:12px;
+.logo {
+  text-align: center;
+  margin-bottom: 18px;
 }
 
-table{
-  border-collapse:collapse;
-  width:100%;
-  background:rgba(20,15,0,0.92);
-  border-radius:12px;
-  border:2px solid #d4af37;
-  overflow:hidden;
+.logo img {
+  width: 230px;
+  max-width: 90%;
 }
 
-td{
-  border:1px solid rgba(255,255,255,0.12);
-  padding:12px;
-  font-size:14px;
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: rgba(20,15,0,0.92);
+  border-radius: 12px;
+  border: 3px solid #ffd700;
+  animation: goldPulse 2s infinite;
+  overflow: hidden;
 }
 
-td.label{
-  width:140px;
-  font-weight:bold;
-  color:#ffd700;
+td {
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 12px;
+  font-size: 14px;
+}
+
+td.label {
+  width: 140px;
+  font-weight: bold;
+  color: #ffd700;
 }
 
 input,
-select,
-textarea{
-  width:100%;
-  border:none;
-  outline:none;
-  background:transparent;
-  color:#fff;
-  font-size:14px;
-  box-sizing:border-box;
+select {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
 }
 
-textarea{
-  min-height:170px;
-  resize:none;
-  padding-top:10px;
+select option {
+  color: black;
 }
 
-select option{
-  color:#000;
+#notif {
+  margin-top: 14px;
+  color: #ffd700;
+  text-align: center;
+  display: none;
+  font-size: 14px;
 }
 
-.button{
-  width:100%;
-  margin-top:14px;
-  border:none;
-  border-radius:10px;
-  padding:14px;
-  background:#ffd700;
-  color:#111;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:15px;
-}
-
-.button:hover{
-  opacity:0.9;
-}
-
-#notif{
-  margin-top:14px;
-  color:#ffd700;
-  text-align:center;
-  display:none;
-  font-size:14px;
-}
-
-.footer{
-  margin-top:14px;
-  text-align:center;
-  color:#999;
-  font-size:12px;
-}
-
-.note{
-  margin-top:10px;
-  font-size:12px;
-  color:#bbb;
-  text-align:center;
+.footer {
+  margin-top: 12px;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
 }
 
 @media(max-width:600px){
 
-  body{
-    padding:12px;
+  body {
+    padding: 12px;
   }
 
-  td{
-    font-size:13px;
-    padding:10px;
+  td {
+    font-size: 13px;
+    padding: 10px;
   }
 
-  td.label{
-    width:110px;
+  td.label {
+    width: 110px;
   }
 
-  .logo img{
-    width:190px;
+  .logo img {
+    width: 190px;
   }
-
 }
 
 </style>
@@ -143,219 +127,155 @@ select option{
 
 <div class="container">
 
-<div class="logo">
-  <img src="https://akongfoto.store/images/2025/10/27/gif-akongcuan.gif?v=1757995782&width=758">
-</div>
+  <div class="logo">
+    <img src="https://akongfoto.store/images/2025/10/27/gif-akongcuan.gif?v=1757995782&width=758">
+  </div>
 
 <form id="form" autocomplete="off">
 
-<table>
+  <table>
 
-<tr>
-  <td class="label">User ID</td>
-  <td>
-    <input
-      id="userid"
-      placeholder="Masukkan User ID"
-      autocomplete="off"
-      autofocus>
-  </td>
-</tr>
+    <tr>
+      <td class="label">User ID</td>
+      <td>
+        <input
+          id="userid"
+          placeholder="Masukkan User ID"
+          autocomplete="off"
+          autofocus>
+      </td>
+    </tr>
 
-<tr>
-  <td class="label">Website</td>
-  <td>
+    <tr>
+      <td class="label">LOGIN SITE</td>
+      <td>
 
-    <select id="site">
-      <option value="https://great25.akongcuankeren.com">
-        great25.akongcuankeren.com
-      </option>
-    </select>
+        <select id="site">
+          <option value="Link Login : https://great25.akongcuankeren.com">⭐️ great25.akongcuankeren.com ⭐️ </option>
+        </select>
 
-  </td>
-</tr>
+      </td>
+    </tr>
 
-<tr>
-  <td class="label">Result</td>
-  <td>
-    <textarea
-      id="result"
-      readonly
-      placeholder="Hasil akan muncul disini..."></textarea>
-  </td>
-</tr>
+  </table>
 
-</table>
-
-<button type="submit" class="button">
-Generate Result
-</button>
-
-<button type="button" class="button" id="copyBtn">
-Copy Result
-</button>
-
-<div id="notif">
-Copied Successfully ✅
-</div>
+  <div id="notif">Copied Successfully ✅</div>
 
 </form>
 
-<div class="note">
-Simple Account Helper Utility
-</div>
-
 <div class="footer">
-BUAT SENDIRI BOSS 😎
-</div>
-
+  BUAT SENDIRI BOSS !!<br>
+  JANGAN MAIN CURI 😎
 </div>
 
 <script>
 
-const WARNING_TEXT =
-"UTILITY BY AKONG 👊";
+const WARNING_TEXT = "PUNYA AKONG YOU 👊 SILAHKAN PAKAI BOS!";
 
+// Popup logo
 window.addEventListener("DOMContentLoaded", () => {
 
-  const logoImage =
-    document.querySelector(".logo img");
+  const logoImage = document.querySelector(".logo img");
 
   if (logoImage) {
-
     logoImage.addEventListener("click", () => {
       alert(WARNING_TEXT);
     });
-
   }
 
 });
 
-const input =
-  document.getElementById("userid");
 
-const form =
-  document.getElementById("form");
+const input = document.getElementById("userid");
+const form = document.getElementById("form");
+const notif = document.getElementById("notif");
+const siteSelect = document.getElementById("site");
 
-const notif =
-  document.getElementById("notif");
+// Generate password
+function generatePassword(length = 8) {
 
-const siteSelect =
-  document.getElementById("site");
+const letters = "abcdefghijklmnopqrstuvwxyz";
+const numbers = "0123456789";
 
-const resultBox =
-  document.getElementById("result");
+let result = "";
 
-const copyBtn =
-  document.getElementById("copyBtn");
+// 4 huruf kecil random
+for (let i = 0; i < 4; i++) {
 
-function generatePassword(){
-
-  const letters =
-    "abcdefghijklmnopqrstuvwxyz";
-
-  const numbers =
-    "0123456789";
-
-  let result = "";
-
-  // 4 huruf kecil
-  for(let i=0;i<4;i++){
-
-    result += letters.charAt(
-      Math.floor(Math.random()*letters.length)
-    );
-
-  }
-
-  // 3 angka
-  for(let i=0;i<3;i++){
-
-    result += numbers.charAt(
-      Math.floor(Math.random()*numbers.length)
-    );
-
-  }
-
-  // acak posisi
-  result = result
-    .split("")
-    .sort(()=>Math.random()-0.5)
-    .join("");
-
-  return result;
+  result += letters.charAt(
+    Math.floor(Math.random() * letters.length)
+  );
 
 }
 
-function generateData(){
+// 3 angka random
+for (let i = 0; i < 3; i++) {
 
-  const userId =
-    input.value.trim();
+  result += numbers.charAt(
+    Math.floor(Math.random() * numbers.length)
+  );
 
-  if(!userId){
-    alert("Masukkan User ID");
-    return false;
-  }
+}
 
-  const code =
-    generatePassword();
+// acak posisi karakter
+result = result
+  .split("")
+  .sort(() => Math.random() - 0.5)
+  .join("");
 
-  const selectedSite =
-    siteSelect.value;
+  return result;
+}
+
+// Copy result
+async function copyData() {
+
+  const userId = input.value.trim();
+
+  if (!userId) return;
+
+  const password = generatePassword(8);
+  const selectedSite = siteSelect.value;
 
   const text =
 `User ID : ${userId}
-Password : ${code}
+Password : ${password}
 
-Website :
-${selectedSite}
+🎯 ${selectedSite}
 
-Silahkan ubah Password sesuai kebutuhan anda setelah masuk ke website.`;
+Silahkan ubah password sesuai kebutuhan bosku setelah masuk ke website. 🙏
 
-  resultBox.value = text;
+⚠️ kami menyarankan USER ID & PASSWORD jangan sama ya bos ‼️`;
 
-  return true;
+  await navigator.clipboard.writeText(text);
 
+  notif.style.display = "block";
+
+  setTimeout(() => {
+    notif.style.display = "none";
+  }, 1500);
+
+  input.value = "";
+  input.focus();
 }
 
-form.addEventListener("submit", e => {
+// ENTER auto copy
+input.addEventListener("keydown", e => {
 
-  e.preventDefault();
+  if (e.key === "Enter") {
 
-  generateData();
+    e.preventDefault();
+    copyData();
+
+  }
 
 });
 
-copyBtn.addEventListener("click", async () => {
+// Submit backup
+form.addEventListener("submit", e => {
 
-  if(!resultBox.value){
-    alert("Belum ada hasil");
-    return;
-  }
-
-  try{
-
-    await navigator.clipboard.writeText(
-      resultBox.value
-    );
-
-    notif.style.display = "block";
-
-    setTimeout(() => {
-
-      notif.style.display = "none";
-
-    },1500);
-
-  }catch(err){
-
-    alert("Gagal copy");
-
-  }
+  e.preventDefault();
+  copyData();
 
 });
 
 </script>
-
-</body>
-</html>
